@@ -7,16 +7,16 @@ of operation
 
 def minOperations(n):
     """funtion that Returns an integer"""
-    if n == 1:
-        return 0
+    len_H = 1
+    len_copied_H = 0
+    total_operations = 0
 
-    operations = [0] * (n + 1)
-
-    for i in range(2, n + 1):
-        operations[i] = float("inf")
-
-        for j in range(1, i // 2 + 1):
-            if i % j == 0:
-                operations[i] = min(operations[i], operations[j] + 2 + i // j)
-
-    return operations[n] if operations[n] != float('inf') else 0
+    while len_H < n:
+        if n % len_H == 0:
+            total_operations += 2
+            len_copied_H = len_H
+            len_H *= 2
+        else:
+            total_operations += 1
+            len_H += len_copied_H
+        return total_operations
