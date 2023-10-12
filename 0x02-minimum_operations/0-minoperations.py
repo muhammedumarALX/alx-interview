@@ -10,18 +10,16 @@ def minOperations(n):
     to result in exactly n H characters.
     """
 
-    len_h = 1
-    len_copied_h = 0
-    total_operations = 0
+    if n == 1:
+        return 0
 
-    while len_h < n:
-        if n % len_h == 0:
-            total_operations += 2
-            len_copied_h = len_h
-            len_h *= 2
-        else:
-            total_operations += 1
-            len_h += len_copied_h
+    operations = [0] * (n + 1)
 
-        return total_operations
+    for i in range(2, n + 1):
+        operations[i] = float('inf')
 
+        for j in range(1, i // 2 + 1):
+            if i % j == 0:
+                operations[i] = min(operations[i], operations[j] + 2 + i // j)
+
+    return operations[n] if operations[n] != float('inf') else 0
