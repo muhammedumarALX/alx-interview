@@ -9,6 +9,7 @@ def minOperations(n):
     """Calculates the fewest number of operations (copy, paste) needed
     to result in exactly n H characters.
     """
+
     len_h = 1
     len_copied_h = 0
     total_operations = 0
@@ -21,4 +22,6 @@ def minOperations(n):
         else:
             total_operations += 1
             len_h += len_copied_h
+
         return total_operations
+
