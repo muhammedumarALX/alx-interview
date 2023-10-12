@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-method trhat calcilates the fewest number
-of operation
+A method that calculates the fewest number of operations (copy, paste)
+needed to result in exactly n H characters.
 """
 
 
